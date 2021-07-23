@@ -27,8 +27,15 @@ app.route('/', methods=["GET"])(root)
 def all_Train():
     try:
         response = request.get(f'DATABASE_URL=https://api.wmata.com/StationPrediction.svc/json/GetPrediction')
-    except print(0):
-        pass
+
+        if response:{'message': response}
+            
+    except:
+        print('all train routes is not working')
+        return{'message':'You have hit your AIP Limit'},401
+
+    finally:
+        print('all train route is working')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
