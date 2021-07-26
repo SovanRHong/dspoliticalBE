@@ -43,9 +43,6 @@ def all_Train():
 @app.route('/<station_codes>',methods=['GET'])
 def single_station(station_codes):
     try:
-      
-       
-        
         response = requests.get(f'{weather_url}{station_codes}',params={'format':'json','API_KEY':api_key})
 
         print(response)
@@ -57,6 +54,7 @@ def single_station(station_codes):
       
     except Exception as e:
         return{'message':'error request  unsuccessful'},401
+    
     finally:
         print('single station route is working')
 
