@@ -19,7 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 models.db.init_app(app)
 
-weather_url="https://api.wmata.com/StationPrediction.svc/json/GetPrediction/"
+metro_url="https://api.wmata.com/StationPrediction.svc/json/GetPrediction/"
 api_key=os.environ.get('METRO_API_KEY')
 
 def root():
@@ -29,7 +29,7 @@ app.route('/', methods=["GET"])(root)
 @app.route('/ALL',methods=['GET'])
 def all_Train():
     try:
-        response = requests.get(f'{weather_url}ALL',params={'format':'json','API_KEY':api_key})
+        response = requests.get(f'{metro_url}ALL',params={'format':'json','API_KEY':api_key})
         
         print(response.json())
         return{'message':'search successful',"trains_data":response.json()}
@@ -43,17 +43,17 @@ def all_Train():
 @app.route('/<station_codes>',methods=['GET'])
 def single_station(station_codes):
     try:
-        response = requests.get(f'{weather_url}{station_codes}',params={'format':'json','API_KEY':api_key})
+        response = requests.get(f'{metro_url}{station_codes}',params={'format':'json','API_KEY':api_key})
 
         print(response)
         if response:
             print(response.json())
             return{'message':'search successful',"station_data":response.json()}
         else:
-            return{'message':'There are no trains at this station'}
+            return{'message':'There are no trains at this station',"station_data":{"Trains":[]}}
       
     except Exception as e:
-        return{'message':'error request  unsuccessful'},401
+        return{'message':'error request unsuccessful'},401
     
     finally:
         print('single station route is working')
