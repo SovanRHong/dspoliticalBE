@@ -19,9 +19,7 @@ models.db.init_app(app)
 metro_url="https://api.wmata.com/StationPrediction.svc/json/GetPrediction/"
 api_key=os.environ.get('METRO_API_KEY')
 
-def root():
-    return { 'message': 'You hit the root route!' }
-app.route('/', methods=["GET"])(root)
+
 
 
 @app.route('/ALL',methods=['GET'])
@@ -41,7 +39,7 @@ def all_Train():
             # if error:
             # response {error}
     finally:
-        print('ALL trains routes is working')
+        print('all_Train routes is working')
 
 @app.route('/<station_codes>',methods=['GET'])
 def single_station(station_codes):
@@ -72,3 +70,4 @@ def single_station(station_codes):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
+
