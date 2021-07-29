@@ -38,8 +38,7 @@ def all_Train():
         return{'message':'reached your allowed API limit'},429
             # if error:
             # response {error}
-    finally:
-        print('all_Train routes is working')
+    
 
 @app.route('/<station_codes>',methods=['GET'])
 def single_station(station_codes):
@@ -64,8 +63,7 @@ def single_station(station_codes):
         # if error:
             # response {error}
     
-    finally:
-        print('single station route is working')
+    
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
