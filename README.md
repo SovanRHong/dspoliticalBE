@@ -4,7 +4,7 @@
 <p>Also hope you don't mind, but I had my dog help me to debug... he wasn't a lot of help.
 </p>
 
-![Frank](/Frank.JPG)
+![Frank](/frank.JPG)
 
 <h2>Back End Instructions:</h2>
 <ul>
@@ -13,4 +13,3 @@
   <li>pip3 install -r requirements.txt</li>
   <li>python3 application.py</li>
 </ul>
-
