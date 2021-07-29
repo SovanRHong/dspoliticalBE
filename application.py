@@ -19,7 +19,9 @@ models.db.init_app(app)
 metro_url="https://api.wmata.com/StationPrediction.svc/json/GetPrediction/"
 api_key=os.environ.get('METRO_API_KEY')
 
-
+@app.route('/', methods=["GET"])
+def root():
+    return {"message":'Hi Ben!'}
 
 
 @app.route('/ALL',methods=['GET'])
