@@ -21,7 +21,7 @@ api_key=os.environ.get('METRO_API_KEY')
 
 @app.route('/', methods=["GET"])
 def root():
-    return {"message":'Hi Ben!'}
+    return 'Hi Ben!'
 
 
 @app.route('/ALL',methods=['GET'])
