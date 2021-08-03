@@ -4,7 +4,7 @@
 <p>Also hope you don't mind, but I had my dog help me to debug... he wasn't a lot of help.
 </p>
 
-![Frank](/frank.JPG)
+![Frank](/Frank.JPG)
 
 <h2>Back End Instructions:</h2>
 <ul>
